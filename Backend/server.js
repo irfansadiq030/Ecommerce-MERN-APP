@@ -8,4 +8,4 @@ dotenv.config({path:'Backend/config/config.env'});
 // Connecting to Database
 connectDatabase();
 
-app.listen(process.env.PORT,()=>console.log(`Server is Running on http:localhost:${process.env.PORT}`))
+app.listen(process.env.PORT,()=>console.log(`Server is Running on http:://localhost:${process.env.PORT}`))

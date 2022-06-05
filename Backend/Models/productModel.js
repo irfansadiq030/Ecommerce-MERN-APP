@@ -22,16 +22,16 @@ const productScheme = new mongoose.Schema({
     },
     images: [
         {
-          public_id: {
-            type: String,
-            required: true,
-          },
-          url: {
-            type: String,
-            required: true,
-          },
+            public_id: {
+                type: String,
+                required: true,
+            },
+            url: {
+                type: String,
+                required: true,
+            },
         },
-      ],
+    ],
     category: {
         type: String,
         required: [true, "Please enter Product Category"]
@@ -44,31 +44,41 @@ const productScheme = new mongoose.Schema({
         default: 1,
 
     },
-    numOfReviews:{
-        type:Number,
-        default:0
+    numOfReviews: {
+        type: Number,
+        default: 0
     },
-    reviews:[
+    reviews: [
         {
-            name:{
-                type:String,
-                required:[true,"Please enter User Name"]
+            user: {
+                type: mongoose.Schema.ObjectId,
+                ref: "User",
+                required: true
             },
-            rating:{
-                type:Number,
-                required:[true,"Please enter Ratings"]
+            name: {
+                type: String,
+                required: [true, "Please enter User Name"]
             },
-            comment:{
-                type:String,
-                required:true
+            rating: {
+                type: Number,
+                required: [true, "Please enter Ratings"]
+            },
+            comment: {
+                type: String,
+                required: true
             }
         }
     ],
-    createdAt:{
-        type:Date,
-        default:Date.now 
+    userID: {
+        type: mongoose.Schema.ObjectId,
+        ref: "User",
+        required: true
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
     }
 
 })
 
-module.exports = mongoose.model("Product",productScheme);
+module.exports = mongoose.model("Product", productScheme);
