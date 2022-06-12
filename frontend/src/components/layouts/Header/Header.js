@@ -18,11 +18,12 @@ function Header() {
     link2Text='About'
     link3Text='Products'
     link4Text='Contact'
-    link5Text='Contact'
+
     link1Url = '/'
     link2Url = '/about'
     link3Url = '/products'
     link4Url = '/contact'
+
     cartIconColor= "rgba(35, 35, 35,0.8)"
     />
   )

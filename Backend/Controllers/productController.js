@@ -22,15 +22,16 @@ exports.createProduct = async (req, resp, next) => {
 /***************  View All Products API -- General Route  ***************/
 
 exports.getAllProducts = async (req, resp) => {
-    const resultPerPage = 5;
+    const resultPerPage = 8;
     // count Products
-    const productCount = await Product.countDocuments();
+    const productsCount = await Product.countDocuments();
     const apiFeature = new ApiFeatures(Product.find(), req.query).search().filter().pagination(resultPerPage);
     const products = await apiFeature.query;
     resp.status(200).json({
         success: true,
         products,
-        productCount
+        productsCount,
+        resultPerPage
     })
 }
 
